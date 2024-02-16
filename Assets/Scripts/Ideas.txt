@@ -1,0 +1,165 @@
+Alright so I got the basic idea of the projet down.
+
+Which is to have a center start/stop button 
+
+and Eight Interactable objects that will play sounds 
+
+So I have eight Interactables. I two things to work first
+
+Start and Stop, lets say this project runs at global BPM of 120.
+
+----
+I did the math for this a few days ago, theres a way to calculate how often a signal is going to be sent
+
+If i have a global BPM of 120, 
+If I wanted Interactable 8 to hit 8 times in the duration of 4 bars,
+the note would have to hit every 250ms
+
+A signal would have to be sent every 2000ms for Interactable 1 to hit 1 time in the duration of 4 bars 
+
+Interactable 1 Stats: 2000ms for 1 hit      in the duration of 4 bars 
+Interactable 2 Stats: 1750ms for 2 hits
+Interactable 3 Stats: 1500ms for 3 hits 
+Interactable 4 Stats: 1250ms for 4 hits 
+Interactable 5 Stats: 1000ms for 5 hits 
+Interactable 6 Stats: 750 ms for 6 hits 
+Interactable 7 Stats: 500 ms for 7 hits
+Interactable 8 Stats: 250 ms for 8 hits
+
+==========
+
+I can start off with a Start/Stop Script that is responsible for sending out play and pause signals to
+the Interactables
+
+What are the requirements for this script?
+It needs to have a boolean option to control the start/stop 
+
+How do i make the object Interactable with a pop up to click or press E or something 
+
+Then we check if we can use that to switch the boolean value to on or off
+
+Then we tie that into the Interactable
+
+===================
+
+So I just finished the part where I built the circle of Interactables.
+Next is to build an accurate metronome that will allow me to send accurate signals to each Interactable.
+
+    This requires actual DSP knowledge, I gotta find an accurate resource to build this.
+
+
+=============
+
+It's time to build a relationship between the start/stop button and the interactables 
+
+I know I can GetComponent from different objects and then access public variables
+I could probabably access the ticks or the running
+
+For right now, lets just focus on having the interactable read the signal.
+
+NotePlayer is now able to read that the StartStop script is running. 
+Now its a matter of reading the metronome's ticks
+
+================
+
+Since I'm not sure I can downright read the Start/Stop scripts ticks the way a mucician would
+listen to a metronome, there are other options.
+1) Each Interactable has its own metronome that is based off of the StartStop buttons BPM, which 
+will be a global variable that any interactable can read if they GetComponent.
+2) Try a bit more to get the Interactables to read the metronome
+
+They way a human reads a metronome is by listening to its ticks and tocks. We're always 
+listening, but make real notice of the ticks and tocks. 
+
+The thing about this project is that every single Interactable has its own sub-bpm if you will
+
+So what I could do is scrap the current Scripts, Keep the Interactor, 
+Have the Metronome simply hold the BPM and the Time Signature 
+The NotePlayers will read the BPM, and do some math to decide what subBPM they will play
+
+====================
+
+Let me see if I can reiterate this part 
+
+if we have a bpm of 120
+beatDuration = 60s / BPM 
+The duration of beat is .5 seconds 
+.250  = (60 / 120) / 2           | this is an eigth note if I divied by 2 that would be a 16th note
+.5    = (60 / 120)               | this is a quarter note 
+.750  = ((60 / 120) / 2) * 3)    | this is a dotted triplet (?) maybe
+.1000 = (60 / 120) * 2           | this is this is a half note 
+.1250 = (60 / 120 / 2) * 5       | this is a fifth note ???? i don't know 
+
+So the pattern looks like: 60s / bpm is the base 
+and then we divide by 2 and add adjustments by multplying by a number 
+
+==========
+
+LETS GOOOOOOOOOOO I GOT EVERYTHING PLAYING SOMETHING
+
+Tomorrow I gotta make sure I can turn off and off each interactable
+
+At some point I gotta start adding visual queues to make sure that its easy to 
+tell when something is on or off
+
+==========
+
+Alright so I've got to a point where I have each interactable playing a note as a certain interval,
+described in ms
+
+So the 1/4 note is played at .5 m milliseconds, and all the other interactables follow suite 
+
+Now its note exactly a polrhyhtm generator. 
+But it is sort of a sequencer
+It's still pretty fun to use, I think its a matter of two things at this point 
+
+1) What direction do i want to take this in?
+    Is it going to continue being a polrhyhtm generator or 
+    am I just going to have a sequencer?
+    If its going to be a sequencer, doesn't it make more sense to have the 
+    pattern of interactables placed in a different order?
+
+    I have time to decide but i need to decide soon
+
+2) How is this project going to look?? 
+
+
+
+=================
+So the next objective is to create a system of popup menus that will help me adjust 
+the parameters of the interactable within the game, rather than having to exit the game 
+or going into the unity developr options to make those changes 
+
+I have to look more into the canvas system in unity
+If I go to the library tomorrow I can make it a point to check that out
+
+
+I havea small prototype of the UI going right now
+It looks how I imagined it in my head, but it's time to nail down the functionality of the product
+The interactable has two functions as of right now 
+    1) its rhyhtm 
+    2) on and off 
+
+I'm considering adding a 3rd
+    3) its volume 
+
+But that may be for a bit later 
+
+I have the prototype setup,
+The thing I don't know now is how 
+to get the player to interact with the UI and have the UI react
+I can't use the same method as the other interactor, as that sends a raycast in the direction of the interactable
+Now sure how accurate it is, and there isn't really a way for me to tell either 
+
+That might be a problem for tomorrow
+
+https://www.youtube.com/watch?v=ccqiNWsYJnI
+
+https://forum.unity.com/threads/efficient-method-to-create-reticle.344248/
+
+
+==================
+
+As of right now the interactor is handling the OnOff.
+I have a canvas that has a button that is labeled OnOff
+
