@@ -26,7 +26,7 @@ public class NotePlayer : MonoBehaviour, IInteractable
         st = metronome.GetComponent<StartStopScript>();
         globalBpm = st.bpm;
         setRhyhtm();
-        Debug.Log("Rhythm: " + rhythm + " dTime: " + dTime);
+        //Debug.Log("Rhythm: " + rhythm + " dTime: " + dTime);
         nextTick = AudioSettings.dspTime + dTime;
     }
 

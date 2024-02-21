@@ -45,7 +45,8 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0); // Rotates along y axis
         
         /* I think the Unity X axis is the vertical plane while the Y axis is along the horizontal */
-        
+        //Debug.DrawRay(transform.position, orientation.forward * 50, Color.green);
+
     }
 
     // Camera changed 

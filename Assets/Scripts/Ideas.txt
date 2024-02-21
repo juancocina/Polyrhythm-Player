@@ -163,3 +163,65 @@ https://forum.unity.com/threads/efficient-method-to-create-reticle.344248/
 As of right now the interactor is handling the OnOff.
 I have a canvas that has a button that is labeled OnOff
 
+======
+I'm going to try creating a new script, placing it on the canvas, having the button call the onClick script, 
+and allowing the script access to the interactable NotePlayer object,
+
+So clicking the button will activate or deactivate the NotePlayer bool to turn it off and on
+
+The thing with the tutorials that i've seen, they're all in 2D.
+My project is 3d, and the Canvas is present in the world, not on 2d screen.
+--
+From my research online, there really isn't a solution for what I want to do, aside from raycast,
+but the thing is that My UI isn't really an object, at least not in the same way as 
+my other in game objects are, such as the interactable NotePlayer. I can use raycast on that, 
+because casting the ray actually hits something 
+
+So I have two options here, I can recreate the UI purely using game objects, and apply some sort of 
+canvas ON TOP of that so that theres still text and such, or I can continue down this path of 
+making a Canvas UI interactable.
+
+I can't really find any resources on what I want to do with the UI. That kind of sucks, 
+so I either spend a lot of time engineering a solution, or try out the other option of making a bunch
+of objects that can be interacted with 
+
+That pathway also has its difficulties, which are probably going to come along with the 
+dropdown idea that I had and the volume mod
+
+The third option is to have a popup UI that I can mess around with, 
+Instead of having an E press Raycast to the NotePlayer to turn off and on, 
+I can have E press raycast to open up a UI that I can interact with my mouse 
+
+
+I'm kind of stuck here, 
+If I create a cube, with scale (1,1,1), the system I have to interact with objects through raycasting, works
+But the moment I change the scale to something more abstract like a thin rectangular prism, the interact system 
+only works on a really weird condition.
+I have to jump and create friction with the object, slide down to as low as it'll let me be without touching
+the ground, and spam E. Thats the only condition that i've found that works.
+
+So the potential solution of creating game objects to simulate the UI Canvas has its own issue.
+I mean, I could make large objects and put names or something on them so that the interact system actually
+works, but it wouldn't look pretty and I wouldn't be happy with its presentation.
+
+The other potential solution is to scale everything to be very big.
+
+The thing with the UI is that I scaled the UI to be at 0.01 of the canvas
+So that is potentially the issue with raycasting not working.
+
+==
+I think i'm going to try using the UI tool kit, project the UI onto a texture in the world space
+and then try to raycast to interact with the UI
+
+I've figured out something about the way I'm raycasting
+I need to raycast in the direction that the camera is facing, at the reticle 
+
+The way things are right now, it raycasts just directly forward with no indication or tilt or rotation 
+The next objective is to make Interactor.cs sending out a raycast using the cameras reticle, 
+Instead of from the players main position
+
+I feel like once i get an understanding of how the raycasts work, I can make sure that they 
+come directly out of the camera and then move onto integrating the UI
+
+If the reason that the UI was never detecting the raycast was because of the forward direction 
+it was coming out of the player, then we can resolve that by having it come out of the camera 

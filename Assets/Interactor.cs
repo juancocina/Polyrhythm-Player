@@ -10,7 +10,7 @@ public class Interactor : MonoBehaviour
 {
     public Transform InteractorSource;
     public float InteractRange;
-
+    public Camera cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +25,10 @@ public class Interactor : MonoBehaviour
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
             if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
                 if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
+                    Debug.Log("Hit");
                     interactObj.Interact();
                 }
             }
-        }    
+        }
     }
 }

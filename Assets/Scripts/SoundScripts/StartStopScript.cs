@@ -30,9 +30,9 @@ public class StartStopScript : MonoBehaviour, IInteractable
 
     public void Interact() 
     {
-        Debug.Log("Test Start/Stop");
+        //Debug.Log("Test Start/Stop");
         if(running == false) {
-            Debug.Log(bpmInSeconds);
+            //Debug.Log(bpmInSeconds);
             bpm = bpm;
             bpmInSeconds = 60 / bpm;
             nextTick = AudioSettings.dspTime + bpmInSeconds;
@@ -53,10 +53,10 @@ public class StartStopScript : MonoBehaviour, IInteractable
             if(AudioSettings.dspTime >= nextTick)
             {
                 if(accent >= signatureHi){
-                    Debug.Log("Tock" + accent + "/" + signatureHi);
+                    //Debug.Log("Tock" + accent + "/" + signatureHi);
                     accent = 1;
                 }else {
-                    Debug.Log("Tick" + accent + "/" + signatureHi);
+                    //Debug.Log("Tick" + accent + "/" + signatureHi);
                     accent++;
                 }
                 nextTick += bpmInSeconds;
