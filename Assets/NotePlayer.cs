@@ -17,8 +17,8 @@ public class NotePlayer : MonoBehaviour, IInteractable
     private double nextTick = 0.0F;
 
     public void Interact() {
-        if(OnOff == false) OnOff = true;
-        else if(OnOff == true) OnOff = false;
+        // if(OnOff == false) OnOff = true;
+        // else if(OnOff == true) OnOff = false;
     }
 
     void Start() {

@@ -225,3 +225,20 @@ come directly out of the camera and then move onto integrating the UI
 
 If the reason that the UI was never detecting the raycast was because of the forward direction 
 it was coming out of the player, then we can resolve that by having it come out of the camera 
+
+== 
+
+After a little bit of research, I got the camera raycast working.
+I had to set the player camera tag as MainCamera, then I could use use Camera.main in
+the Interactor.cs script.
+
+Then from there, using the camera position to generate a raycast
+
+The UI button works now, and I can also interact with the NotePlayer. 
+Now its just a matter of having the I/O button turn the NotePlayer on and off, which should be a bit easier
+than working out the UI.
+
+After the I/O button I can probably figure out the dropdown, then the volume 
+
+-- Dub I got the I/O button to turn the NotePlayer on and off while the metronome is playing
+Next up is the drop menu. We'll see how that goes lol 

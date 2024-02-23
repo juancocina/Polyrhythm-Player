@@ -5,14 +5,14 @@ using UnityEngine;
 public class ButtonScript : MonoBehaviour, IInteractable
 {
     [Header("References")]
-    public GameObject NotePlayer;
+    public GameObject nPlayer;
+    private NotePlayer nScript;
     //private NotePlayerScript nScript;
     
     // Start is called before the first frame update
     void Start()
     {
-        //nScript = NotePlayer.GetComponent<NotePlayer>();
-
+        nScript = nPlayer.GetComponent<NotePlayer>();
     }
 
     // Update is called once per frame
@@ -24,5 +24,8 @@ public class ButtonScript : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("test button");
+        if(nScript.OnOff == false) nScript.OnOff = true;
+        else if (nScript.OnOff == true) nScript.OnOff = false;
+
     }
 }
