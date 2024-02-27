@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ButtonScript : MonoBehaviour, IInteractable
+public class RhythmGridScript : MonoBehaviour, IInteractable
 {
-    [Header("References")]
+    public int rhyhtmSelect;
     public GameObject nPlayer;
     private NotePlayer nScript;
-    //private NotePlayerScript nScript;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +19,9 @@ public class ButtonScript : MonoBehaviour, IInteractable
     {
         
     }
-
-    public void Interact()
-    {
-        Debug.Log("Test Button");
-        if(nScript.OnOff == false) nScript.OnOff = true;
-        else if (nScript.OnOff == true) nScript.OnOff = false;
-
+    
+    public void Interact() {
+        Debug.Log("GridButton Test");
+        nScript.rhythm = rhyhtmSelect;
     }
 }

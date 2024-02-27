@@ -25,7 +25,7 @@ public class NotePlayer : MonoBehaviour, IInteractable
         OnOff = false;
         st = metronome.GetComponent<StartStopScript>();
         globalBpm = st.bpm;
-        setRhyhtm();
+        //setRhyhtm();
         //Debug.Log("Rhythm: " + rhythm + " dTime: " + dTime);
         nextTick = AudioSettings.dspTime + dTime;
     }
@@ -47,7 +47,7 @@ public class NotePlayer : MonoBehaviour, IInteractable
         return;
     }
 
-    void setRhyhtm() {
+    public void setRhyhtm(){
         globalBpm = st.bpm;
         rhythm = rhythm;
         switch(rhythm)

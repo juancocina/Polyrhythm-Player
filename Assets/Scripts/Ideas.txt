@@ -242,3 +242,65 @@ After the I/O button I can probably figure out the dropdown, then the volume
 
 -- Dub I got the I/O button to turn the NotePlayer on and off while the metronome is playing
 Next up is the drop menu. We'll see how that goes lol 
+
+==========
+
+Today, I'm going to try and implement the dropdown, maybe see how far I can go too
+
+Right Now, I added a box collider to the dropdown to try and get it to notice raycasts.
+Without the box collider, hitting the dropdown with a raycast does not do anything. 
+
+Still, the dropdown menu doesn't activate.
+I'm starting to think though, given that there are 1/16 options for the menu, 
+is a dropdown the best, most user friendly and intuitive approach
+
+Even if i did get it to activate, the fact that It would then drop down 16 items, might clip 
+into the floor or cover up other items 
+
+Two things come to mind 
+    [<] Text [>]
+        where there are to buttons on the left and right that manipulate the rhyhtm of the 
+        NotePlayer, and Text being the place where it will display changes 
+
+Or 
+    having a circle with different patterns to select 
+    Selecting a different pattern will gray it, and whiten all others to claim that it is 
+    selected 
+            2
+         5     3
+            4
+
+    So something like a dail. If two is selected, it wil be grayed out and the others will be 
+    lighter, to indicate that it was selected 
+    But then again, there are going to be 16 options 
+
+    Now, the other option is to make a board 
+    1   2  3  4 
+    5   6  7  8
+    9  10 11 12
+    13 14 15 16 
+        or 
+    1  2  3  4  5  6  7  8
+    9 10 11 12 13 14 15 16
+
+    This would be similar to the dail in selection, but might be more viable for space 
+
+    I think the first option is definitely easier to implement, but in terms of 
+    freedom, a little bit more limited 
+    Since you would have to click through so many time to get different rhyhtms 
+
+    I think all options are better than the dropdown as initially presented
+
+    So, i can either start with a test canvas for the Grid presentation 
+    or get started on implementing two buttons and text box
+
+    -- 
+    I think that the grid is definitely the better choice
+    Start by making two buttons, 4/16 and 6/16 
+
+    and then testing to see if they change anything.
+    I also need to think about how the sciprt is going to work. How am I gonna set it up
+    so that the grid is sort of, one unit, and eat button inside of it does something 
+
+    Can i put a script a canvas and use it to access buttons?
+    
