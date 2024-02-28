@@ -304,3 +304,11 @@ Or
 
     Can i put a script a canvas and use it to access buttons?
     
+==============
+
+So Today I've reworked the UI and the grid a little bit, all the buttons in the grid work
+I've not yet started on the Volume, 
+So I have 2 of the 3 UI buttons working
+I just realized that I have to add a fourth one -> a way for the player to input the 
+BPM 
+
