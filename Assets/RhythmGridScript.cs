@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RhythmGridScript : MonoBehaviour, IInteractable
 {
-    public int rhyhtmSelect;
+    public int rhythmSelect;
     public GameObject nPlayer;
     private NotePlayer nScript;
     // Start is called before the first frame update
@@ -22,6 +22,6 @@ public class RhythmGridScript : MonoBehaviour, IInteractable
     
     public void Interact() {
         Debug.Log("GridButton Test");
-        nScript.rhythm = rhyhtmSelect;
+        nScript.rhythm = rhythmSelect;
     }
 }

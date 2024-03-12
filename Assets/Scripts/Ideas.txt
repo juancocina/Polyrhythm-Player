@@ -312,3 +312,49 @@ So I have 2 of the 3 UI buttons working
 I just realized that I have to add a fourth one -> a way for the player to input the 
 BPM 
 
+====
+https://forum.unity.com/threads/how-can-i-manipulate-a-2d-slider-using-my-mouse-in-3d-world-space.1318095/
+
+This is a link to someone that was working on pretty much exactly the problem that I have
+What they did is put a collider on top of the slider, and then the user raycasts onto the collider 
+
+We take an X Y or Z value from the hitInfo, and apply that to the slider values after being normalized 
+to a value that the slider understands
+
+I've created the collider, and now I want to output the hitInfo onto console
+
+The issue than I'm encountering right now is that the Interact() function doesn't take in 
+any variables and it doesn't actually have access to the hitInfo
+Since the raycast comes from Interactor.cs
+
+So i have a few option here 
+1) pass a float into interact 
+    i know ill have issues with this since my other scripts don't have any variables passing into it 
+2) Check the tag, 
+    if (tagged slider) call Interact(with float) 
+    else call the regular Interact() function 
+3) Change the variable in Slider from the Interactor.cs script, but his might have the same issues 
+    as the first option, since we still need to differentiate between the slider and the buttons 
+
+I think the best course of action is option number 2, we let the Slider Script handle changing 
+the variables of the slider 
+
+All the Interactor is supposed to do is raycast and hit detection
+Maybe we can pass the hitInfo into the SliderScript
+
+if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
+                if(hitInfo.collider.CompareTag("Slider")){
+                    if(hitInfo.collider.gameObject.TryGetComponent<SliderScript>(out SliderScript sScript)) {
+                        sScript.passHitInfo(hitInfo.point.y);
+                    }
+                } else (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
+                    interactObj.Interact();
+                }
+            }
+
+if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
+    if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
+        Debug.Log(hitInfo.point);
+        interactObj.Interact();
+    }
+}

@@ -37,8 +37,15 @@ public class Interactor : MonoBehaviour
             Ray r = cam.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(r.origin, r.direction * 20, Color.green);
             if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
-                if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) {
-                    //Debug.Log("Hit");
+                if(hitInfo.collider.CompareTag("Slider"))
+                {
+                    if(hitInfo.collider.gameObject.TryGetComponent<SliderScript>(out SliderScript sScript)) 
+                    {
+                        sScript.passHitInfo(hitInfo.point.y);
+                    }
+                } 
+                if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) 
+                {
                     interactObj.Interact();
                 }
             }
