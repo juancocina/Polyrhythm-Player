@@ -358,3 +358,19 @@ if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
         interactObj.Interact();
     }
 }
+
+============
+
+Now I finishsed the UI, to the best of my ability.
+Now I'm not entirely sure what to do with the project.
+
+How do I further develop it?
+
+I think, in the best case scenario, it would be a bit of a sandbox kind of thing 
+Where you can place speakers with certain sounds and create a 3d space where you can make your own beats
+
+I think the next on the list is to be able to freely modify the BPM and press an 
+actuall start/stop button 
+
+Maybe this part of the UI should always face the player 
+
