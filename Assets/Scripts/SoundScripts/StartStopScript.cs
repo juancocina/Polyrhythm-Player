@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 
-public class StartStopScript : MonoBehaviour, IInteractable
+public class StartStopScript : MonoBehaviour
 {
     // Metronome Section
     [Header("References")]
@@ -28,15 +28,12 @@ public class StartStopScript : MonoBehaviour, IInteractable
         running = false;
     }
 
-    public void Interact() 
+    public void startStop()
     {
         //Debug.Log("Test Start/Stop");
         if(running == false) {
             //Debug.Log(bpmInSeconds);
-            bpm = bpm;
-            bpmInSeconds = 60 / bpm;
-            nextTick = AudioSettings.dspTime + bpmInSeconds;
-            accent = 1;
+            updateBPM();
             running = true;
         }
         else if(running == true) {
@@ -62,5 +59,24 @@ public class StartStopScript : MonoBehaviour, IInteractable
                 nextTick += bpmInSeconds;
             }
         }
+    }
+
+    private void updateBPM() 
+    {
+        bpm = bpm;
+        bpmInSeconds = 60 / bpm;
+        nextTick = AudioSettings.dspTime + bpmInSeconds;
+        accent = 1;
+    }
+
+    public void addBPM(){
+        bpm+=1;
+        updateBPM();
+        Debug.Log(bpm);
+    }
+    public void subtractBPM() {
+        bpm-=1;
+        updateBPM();
+        Debug.Log(bpm);
     }
 }

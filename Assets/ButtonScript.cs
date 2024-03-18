@@ -23,9 +23,7 @@ public class ButtonScript : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Test Button");
         if(nScript.OnOff == false) nScript.OnOff = true;
         else if (nScript.OnOff == true) nScript.OnOff = false;
-
     }
 }

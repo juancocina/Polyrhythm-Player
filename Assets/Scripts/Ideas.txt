@@ -374,3 +374,33 @@ actuall start/stop button
 
 Maybe this part of the UI should always face the player 
 
+==============================
+
+So, I've finished one side of the UI
+
+So the next step is to make the center UI face the player at all times.
+I think it might be as easy as modifying the transform to angle toward one of the coordinates of the player 
+but im not exactly sure, i'd have to do some research and a little bit of planning to integrate.
+I set my deadline to this Friday the week of 3/18, so I have time to implement. 
+
+What I have not planned is further development. 
+I think it would be really cool to have a sandbox for the user to place specific components around the plane 
+and choose between sounds that the player could set the cubes to. 
+I also thing it would be cool to integrate some usage of the Fast Fourier transform algorithm. 
+
+So that would take researching how to create a sandbox
+    Which means how would the user 
+        - pick specific types of blocks 
+        - place, move, modify, remove, insert, different kinds of blocks
+        - choose what sounds the block will have
+        - 
+
+Also, what kind of things can I do with FFT?
+    
+Both of these things require research. After I implement the Metronome UI facing the player all times, 
+I can start another wave of research and development planning.
+
+=====
+
+
+
