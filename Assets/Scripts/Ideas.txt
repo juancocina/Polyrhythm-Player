@@ -402,5 +402,7 @@ I can start another wave of research and development planning.
 
 =====
 
+Made it so that the metronome UI faces the player at all times.
 
+Next up in the development is to step into a research phase of making a sandbox type game 
 
