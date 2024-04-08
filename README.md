@@ -4,7 +4,7 @@ Polyrhythm Player was originally intended to assist my music production through 
 To learn more about polyrhythms, [Click Here](https://www.beyondmusictheory.org/polyrhythms/)
 
 There are plenty of polyrhythm demonstrators online, but none (that I could find) that are created in 3D space. I thought it would be a good project for me to create exactly that.
-I chose Unity and C# because I had previously worked on some Game Jams, so I was a bit familiar with the tech. 
+I chose Unity and C# because I had previously used Unity for some Game Jams.
 
 ## As of writing this 
 I have these main objects - 
