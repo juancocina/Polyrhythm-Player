@@ -7,12 +7,14 @@ There are plenty of polyrhythm demonstrators online, but none (that I could find
 I chose Unity and C# because I had previously used Unity for some Game Jams.
 
 ## As of writing this 
-I have these main objects - 
+I have these main objects -  
 Metronome
 : Holds the BPM (Beats Per Minute) and Start/Stop function that the NotePlayer's will respond to.
 : For example, if the Metronome is on and has a BPM set at 120, it will tick twice every second.
+
 NotePlayer
 : Catches the tick from the metronome and plays a sound at that moment. NotePlayer has its own Mute/Unmute, Volume Slider, and RhythmGrid.
+
 RhythmGrid
 : A 4x4 grid that allows the User to select the Pattern that the NotePlayer's sound will play in.
 : For example, selecting a '4/16' pattern on the grid will set the NotePlayer to play a set sound as a "Quarter-Note" (in musical terms).
