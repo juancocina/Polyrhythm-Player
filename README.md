@@ -20,7 +20,7 @@ RhythmGrid
 : For example, selecting a '4/16' pattern on the grid will set the NotePlayer to play a set sound as a "Quarter-Note" (in musical terms).
 
 ## Ideas 
-https://github.com/juancocina/Polyrhythm-Player/blob/main/Assets/Scripts/Ideas.txt
+https://github.com/juancocina/Polyrhythm-Player/blob/main/Assets/Scripts/Ideas.txt  
 Click this link to see the evolution of my ideas and my thought process for developing this project.
 
 # The Future
